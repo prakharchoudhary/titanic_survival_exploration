@@ -13704,7 +13704,10 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: I tried several combinations and found that the tricky part was not only choosing the right parameters for male population but also one for female. Predictions have an accuracy of 80.13%</p>
+<p><strong>Answer</strong>: Initially, my approach was quite simple. I assumed that if I simply define conditions for who all survive then I will achieve maximum accuracy. In doing so, I also assumed that if the passenger is female, she will survive. But when I began trying different splits for males the accuracy never went beyond 79.91%. My splits by now were in the following order -&gt; Gender -&gt; Age(if less than 10, will survive), if not-&gt; Pclass(1 or 2, will survive), if not -&gt;  siblings(less than 2, will survive).
+I eventually tried other parameters such as fare(fare &gt; 52, will survive) or Embarked( adult males form Cherbourg show highest survvival rates ), however the only accuracies i acheved were, 79.46% and later 79.91%.
+Thus, I changed my approach completely and first made sure that my assumption that all women survive should be more accurate. I found that the only influencing factor was 'SibSp' and thus number of siblings greater than 2 severly dimish chances of survival. Later among men the only distinguishable trend could be found in Pclass 2 and hence it served as my second split. Now, I assumed that children will be taken to safety first and hence this time i defined that above age 10 means, no survival. In the else condition, I found by sheer trial and error that a simple else condition(which meant if Pclass is 1 or 3) led me to an accuracy of 80.13%.
+Hnece, finally, the predictions have an accuracy of 80.13%</p>
 
 </div>
 </div>
